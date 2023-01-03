@@ -1,0 +1,133 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+
+<section class="space-ptb" id="htmlData" >
+  <div class="container"  >
+    <div class="row justify-content-center" >
+      <div class="col-md-9" >
+        <div class="row" >
+          <div class="col-lg-5"  >
+            <div class="resume-base bg-light user-dashboard-info-box" >
+              <div class="profile">
+                <div class="jobber-user-info">
+                  <div class="profile-avatar"  >
+                    <img class="img-fluid " src="http://localhost:8080/users/files/{{candidat.image}}" alt="">
+                  
+                  </div>
+                  <div class="profile-avatar-info mt-3" >
+                    <h5>{{candidat.firstName}} {{candidat.lastName}}</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="about-candidate border-top">
+                <div class="candidate-info">
+                  <h6>Name:</h6>
+                  <p>{{candidat.firstName}} {{candidat.lastName}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Email:</h6>
+                  <p>{{candidat.date_naissance}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Phone:</h6>
+                  <p>{{candidat.phone}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Date Of Birth:</h6>
+                  <p>{{candidat.date_naissance}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Address:</h6>
+                  <p>{{candidat.adresse}} {{candidat.city.city}},{{candidat.city.admin_name}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Gender:</h6>
+                  <p>{{candidat.gender}}</p>
+                </div>
+                <h6>About me:</h6>
+                <p>{{candidat.description}}</p>
+                <h6>Langues:</h6>
+               
+                  <div class="col-md-6"  *ngFor="let l of lang">
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar"  [ngStyle]="{'width.%':l.niveau}" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar-title">{{l.title}}</div>
+                        <span class="progress-bar-number">{{l.niveau}}%</span>
+                      </div>
+                    </div>
+                 
+                </div>
+               
+              </div>
+            </div>
+            
+            <a class="btn btn-primary" (click)="openPDF()">Download CV <i class="fas fa-download ms-1"></i></a>
+          </div>
+          
+          <div class="col-lg-7">
+            <div class="resume-experience ps-0">
+              <div class="timeline-box">
+                <h5 class="resume-experience-title">Education:</h5>
+                <div class="jobber-candidate-timeline">
+                    <form *ngFor="let e of education">
+                      <div class="jobber-timeline-item">
+                        <div class="jobber-timeline-cricle">
+                          <i class="far fa-circle"></i>
+                        </div>
+                        <div class="jobber-timeline-info">
+                          <span class="jobber-timeline-time">{{e.datedebut}} <b> to </b> {{e.datefinale}}</span>
+                          <h6 class="mb-2">{{e.certificat}}</h6>
+                          <span>-University</span>
+                          <p class="mt-2">{{e.faculte}}</p>
+                        </div>
+                      </div>
+                      </form>
+                </div>
+              </div>
+              <div class="timeline-box mt-4">
+                <h5 class="resume-experience-title">Work & Experience:</h5>
+                <div class="jobber-candidate-timeline">
+                  <form *ngFor="let ex of experience">
+                    <div class="jobber-timeline-item">
+                      <div class="jobber-timeline-cricle">
+                        <i class="far fa-circle"></i>
+                      </div>
+                      <div class="jobber-timeline-info">
+                        <span class="jobber-timeline-time">{{ex.ddebut}} <b> to </b>{{ex.dfinal}}</span>
+                        <h6 class="mb-2">{{ex.poste}}</h6>
+                        <span>-{{ex.entreprise}}</span>
+                        <p class="mt-2">{{ex.description}}</p>
+                      </div>
+                    </div>
+                  </form>
+                 
+                </div>
+              </div>
+                <div class="mt-4">
+                  <h5>Professional Skill:</h5>
+
+                 
+                    <div   *ngFor="let c of competence">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar"  [ngStyle]="{'width.%':c.niveau}" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar-title">{{c.title}}</div>
+                          <span class="progress-bar-number">{{c.niveau}}%</span>
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+My Resume -->
+    <div id="back-to-top" class="back-to-top">
+      <i class="fas fa-angle-up"></i>
+    </div>
+
+   

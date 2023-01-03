@@ -1,0 +1,190 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row mb-3 mb-lg-5 mt-3 mt-lg-0">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="candidates-feature-info bg-dark">
+              <div class="candidates-info-icon text-white">
+                <i class="fas fa-globe-asia"></i>
+              </div>
+              <div class="candidates-info-content">
+                <h6 class="candidates-info-title text-white">Total Applications</h6>
+              </div>
+              <div class="candidates-info-count">
+                <h3 *ngIf="candidatures.length>=10" class="mb-0 text-white">{{candidatures.length}}</h3>
+                <h3 *ngIf="candidatures.length<10" class="mb-0 text-white">0{{candidatures.length}}</h3>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="candidates-feature-info bg-success">
+              <div class="candidates-info-icon text-white">
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+              <div class="candidates-info-content">
+                <h6 class="candidates-info-title text-white">Shortlisted Applications</h6>
+              </div>
+              <div class="candidates-info-count">
+                <h3 *ngIf="candidaturesA.length>=10" class="mb-0 text-white">{{candidaturesA.length}}</h3>
+                <h3 *ngIf="candidaturesA.length<10" class="mb-0 text-white">0{{candidaturesA.length}}</h3>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="candidates-feature-info bg-danger">
+              <div class="candidates-info-icon text-white">
+                <i class="fas fa-thumbs-down"></i>
+              </div>
+              <div class="candidates-info-content">
+                <h6 class="candidates-info-title text-white">Rejected Applications</h6>
+              </div>
+              <div class="candidates-info-count">
+                <h3 class="mb-0 text-white">0{{candidaturesR.length}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user-dashboard-info-box">
+          <div id="chart">
+          </div>
+        </div>
+        <div class="user-dashboard-info-box mb-0 pb-4">
+          <div class="section-title">
+            <h4>Recent Applied Jobs</h4>
+          </div>
+          <div class="user-dashboard-info-box" *ngFor="let offer of offers  ; let i =index" l>
+            <div class="dashboard-resume-title d-flex align-items-center">
+              <div class="section-title-02 mb-sm-0">
+                <h5>{{offer.titleoffer}}</h5>
+              </div>
+              <a class="btn btn-md ms-sm-auto btn-primary collapsed" data-bs-toggle="collapse"
+                href="#dateposted-0{{i+2}}" role="button" aria-expanded="false" aria-controls="dateposted"> voir
+                candidatures</a>
+            </div>
+            <div class="collapse" id="dateposted-0{{i+2}}">
+              <div class="bg-light p-3 mt-4" *ngIf="offer.Candidatures.length>0">
+                <form class="row">
+                  <div class="col-12" *ngFor="let c of offer.Candidatures">
+                    <div class="job-list" *ngIf="c.status == 'Non vue'">
+                      <div class="job-list-logo">
+                        <img class="img-fluid" src="http://localhost:8080/users/files/{{c.candidat.image}}" alt="">
+                      </div>
+                      <div class="job-list-details">
+                        <div class="job-list-info">
+                          <div class="job-list-title">
+                            <h5 class="mb-0"><a>{{c.candidat.firstName}} {{c.candidat.lastName}}</a></h5>
+                          </div>
+                          <div class="job-list-option">
+                            <ul class="list-unstyled">
+                              <li> <span>via</span> <a href="employer-detail.html"> {{offer.titleoffer}}</a> </li>
+                              <li><i class="fas fa-map-marker-alt pe-1"></i> {{offer.city.city}}, {{offer.city.country}}
+                              </li>
+                              <li><i class="fas fa-filter pe-1"></i>{{offer.categorie.titlecategorie}}</li>
+                              <li><a class="{{offer.contract_type}}" href="#"><i
+                                    class="fas fa-suitcase pe-1"></i>{{offer.contract_type}}</a></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div style="margin-left:200px;margin-top:20px;">
+                        <button (click)="getId(c.id)" class="btn btn-success btn-xs" data-bs-toggle="modal"
+                          data-bs-target="#exampleModalCenter1">Accept</button>
+                        <button (click)="refuseCandidature(c,c.id)" class="btn btn-danger btn-xs">Reject</button>
+                      </div>
+                      <div>
+
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-12" *ngFor="let c of candidatures">
+              <div class="job-list">
+                <div class="job-list-logo">
+                  <img class="img-fluid" src="http://localhost:8080/users/files/{{c.candidat.image}}" alt="">
+                </div>
+                <div class="job-list-details">
+                  <div class="job-list-info">
+                    <div class="job-list-title">
+                      <h5 class="mb-0"><a>{{c.candidat.firstName}} {{c.candidat.lastName}}</a></h5>
+                    </div>
+                    <div class="job-list-option">
+                      <ul class="list-unstyled">
+                        <li> <span>via</span> <a href="employer-detail.html"> {{c.offre.titleoffer}}</a> </li>
+                        <li><i class="fas fa-map-marker-alt pe-1"></i> {{c.offre.city.city}}, {{c.offre.city.country}} </li>
+                        <li><i class="fas fa-filter pe-1"></i>{{c.offre.categorie.titlecategorie}}</li>
+                        <li><a class="{{c.offre.contract_type}}" href="#"><i
+                              class="fas fa-suitcase pe-1"></i>{{c.offre.contract_type}}</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div >
+                <div class="col-12" >
+                  <button (click)="acceptCandidature(c,c.id)"  class="btn btn-success btn-xs" >Accept</button>
+                  <button (click)="refuseCandidature(c,c.id)"  class="btn btn-danger btn-xs">Reject</button>
+                </div>
+              </div>
+              </div>
+            </div>
+
+          </div> -->
+          <div class="row">
+            <div class="col-12 text-center mt-4 mt-md-5">
+              <ul class="pagination justify-content-center mb-md-4 mb-0">
+                <li class="page-item disabled"> <span class="page-link b-radius-none">Prev</span> </li>
+                <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span
+                    class="sr-only">(current)</span></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">25</a></li>
+                <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- newwwwww -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="login-register">
+          <div class="tab-content">
+            <div class="tab-pane active" id="candidate" role="tabpanel">
+              <form class="mt-4" [formGroup]="formCanidature">
+                <div class="row" style="margin: 30px;">
+                  <div class="form-group col-12 mb-3">
+                    <label class="form-label">Date Entretien</label>
+                    <input type="datetime-local" formControlName="dateEntretien" class="form-control" id="DateEntretien">
+                  </div>
+                  <div class="form-group col-12 mb-3">
+                    <label class="form-label">Lien *</label>
+                    <input type="text" class="form-control" formControlName="lien" id="Lien">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 text-center">
+                    <a class="btn btn-primary d-grid" (click)="acceptCandidature()" type="submit"
+                      data-bs-dismiss="modal">Envoyer </a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

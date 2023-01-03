@@ -1,0 +1,108 @@
+<!--=================================
+My Profile -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="user-dashboard-info-box">
+        <form [formGroup]="formCondidat" (ngSubmit)="updateCandidat()">
+
+          <div class="section-title-02 mb-2 d-grid">
+            <h4>Basic Information</h4>
+          </div>
+          <div class="row">
+            <div class="form-group mb-3 col-md-6">
+              <label class="form-label">Username</label>
+              <input type="text" class="form-control" formControlName="username">
+            </div>
+            <div class="form-group mb-3 col-md-6">
+              <label class="form-label">Profil</label>
+              <input type="text" class="form-control" formControlName="profil">
+            </div>
+            <div class="form-group mb-3 col-md-6">
+              <label class="form-label">firstname</label>
+              <input type="text" class="form-control" formControlName="firstName">
+            </div>
+            <div class="form-group mb-3 col-md-6">
+              <label class="form-label">lastname</label>
+              <input type="text" class="form-control" formControlName="lastName">
+            </div>
+
+            <div class="form-group mb-3 col-md-6 datetimepickers">
+              <label class="form-label">Date of birth</label>
+              <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" formControlName="date_naissance"
+                  data-target="#datetimepicker-01">
+                <div class="input-group-append d-flex" data-target="#datetimepicker-01" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3 col-md-6">
+              <label class="form-label">Phone</label>
+              <input type="text" class="form-control" formControlName="phone">
+            </div>
+
+            <div class="form-group mb-3 col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="mailuser">
+            </div>
+            <div class="form-group mb-0 col-md-6">
+              <label class="form-label">Linkedin</label>
+              <input type="text" class="form-control" formControlName="linkedin">
+            </div>
+          </div>
+          <div class="form-group mb-0 col-md-12">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" rows="5" formControlName="description"></textarea>
+          </div>
+          <br> 
+          <button type="submit" class="btn btn-primary">Save Settings</button>
+
+        </form>
+
+      </div>
+
+      <div class="user-dashboard-info-box">
+        <form [formGroup]="formAdress" (ngSubmit)="updateAdress()" >
+          <div class="row">
+            <h4 class="mb-3">Address</h4>
+            <div class="form-group col-md-6 select-border mb-3">
+              <label class="form-label">Enter Your Location</label>
+              <input type="text" class="form-control" formControlName="adresse">
+            </div>
+            <div class="form-group col-md-6 select-border mb-3">
+              <label class="mb-2">city</label>
+              <select class="form-control basic-select select-hidden-accessible" formControlName="id_city">
+                <option [selected]="true" [value]="userconnect.id_city">{{userconnect.city.city}}</option>
+                <option *ngFor="let city of citys" [value]="city.idcity">{{city.city}} </option>
+              </select>
+            </div>
+           
+            <div class="mb-3 col-md-6"> <button type="submit" class="btn btn-primary">Change Adress</button></div>
+
+          </div>
+        </form>
+      </div>
+      <div class="user-dashboard-info-box">
+        <form [formGroup]="formCV" (ngSubmit)="updateCv()" >
+          <div class="row">
+            <h4 class="mb-3">Upload Your CV</h4>
+            <div class="form-group col-md-6 select-border mb-3">
+              <label class="form-label">Put Your CV  <span>here !</span></label>
+              <input type="file" class="form-control" formControlName="cv" (change)="handelFileInput2($event)">
+            </div>
+        
+            <div class="form-group col-md-6 select-border mb-3">
+              <label class="form-label">Existant CV  <span></span></label>
+              <input type="text" class="form-control" value="{{userconnect.cv}}" disabled>
+            </div>
+            <div class="mb-3 col-md-6"> <button type="submit" class="btn btn-primary">Update CV</button></div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+My Profile -->

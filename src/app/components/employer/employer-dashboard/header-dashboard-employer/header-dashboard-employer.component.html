@@ -1,0 +1,54 @@
+<div class="header-inner bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="candidates-user-info">
+          <div class="jobber-user-info">
+            <div class="profile-avatar">
+              <form [formGroup]="formImage" >
+              <span>  <img class="img-fluid" style="width: 200px;"
+               src="http://localhost:8080/users/files/{{userconnect.image}}" alt="">
+              </span><a (click)="fileInput.click()" title=""><i class="fas fa-pencil-alt"></i></a>
+              <div class="upload-file">
+                <input class="form-control"
+                 name="file" 
+                 (change)="handelFileInput($event)" 
+                 type="file" id="formFile"
+                  formControlName="image"
+                  #fileInput>
+              </div></form>
+            </div>
+            <div class="profile-avat ar-info ms-4">
+              <h3>{{userconnect.username}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--=================================
+inner banner -->
+
+<!--=================================
+Dashboard Nav -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sticky-top secondary-menu-sticky-top">
+          <div class="secondary-menu">
+            <ul>
+              <li><a routerLink="dashboard-employer">Dashboard</a></li>
+              <li><a routerLink="dashboard-profile">My Profile</a></li>
+              <li><a routerLink="dashboard-password">Change Password</a></li>
+              <li><a routerLink="manage-candidates/:id">Manage Candidates</a></li>
+              <li><a routerLink="manage-jobs">Manage Jobs</a></li>
+              <li><a (click)="onLogout()">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="user-dashboard-info-box mb-0 pb-4">
+          <div class="section-title-02 mb-4">
+            <h4>Saved Jobs</h4>
+          </div>
+          <div class="row">
+                      <div class="col-12" *ngFor="let j of jobseved">
+                        <div class="job-list ">
+                          <div class="job-list-logo">
+                            <img class="img-fluid" src="http://localhost:8080/users/files/{{j.offre.logo}}" alt="">
+                          </div>
+                          <div class="job-list-details">
+                            <div class="job-list-info">
+                              <div class="job-list-title">
+                                <h5 class="mb-0"><a href="job-detail.html">{{j.offre.titleoffer}}</a></h5>
+                              </div>
+                              <div class="job-list-option">
+                                <ul class="list-unstyled">
+                                  <li> <span>via</span> <a href="employer-detail.html">{{j.offre.societe.companyname}}  </a> </li>
+                                  <li><i class="fas fa-map-marker-alt pe-1"></i>{{j.offre.city.city}} ,{{j.offre.city.admin_name}}</li>
+                                  
+                                  <li><a class="{{j.offre.contract_type}}" href="#"><i class="fas fa-suitcase pe-1"></i>{{j.offre.contract_type}}</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="job-list-favourite-time"> 
+                            <a class="job-list-favourite order-2" href="#">
+                            <i class="fas fa-heart text-danger"></i></a> 
+                            <span class="job-list-time order-1">
+                              <i class="far fa-clock pe-1"></i>1M ago</span> </div>
+                        </div>
+                      </div>
+           </div>
+        <div class="row">
+          <div class="col-12 text-center mt-4 mt-sm-5">
+            <ul class="pagination justify-content-center mb-0 mb-sm-4">
+              <li class="page-item disabled"> <span class="page-link b-radius-none">Prev</span> </li>
+              <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">...</a></li>
+              <li class="page-item"><a class="page-link" href="#">25</a></li>
+              <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

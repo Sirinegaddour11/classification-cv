@@ -1,0 +1,71 @@
+
+<!--Manage Candidates -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="user-dashboard-info-box table-responsive pb-4 mb-0">
+          <h4>Offres</h4>
+              <div class="user-dashboard-info-box" *ngFor="let offer of offers  ; let i =index" l >
+                <div class="dashboard-resume-title d-flex align-items-center">
+                  <div class="section-title-02 mb-sm-0" >
+                    <h5 >{{offer.titleoffer}}</h5>
+                  </div>
+                  <a class="btn btn-md ms-sm-auto btn-primary collapsed" data-bs-toggle="collapse" href="#dateposted-0{{i+2}}" role="button" aria-expanded="false" aria-controls="dateposted" > voir candidatures</a>
+                </div>
+                <div class="collapse" id="dateposted-0{{i+2}}" >
+                  <div class="bg-light p-3 mt-4"  *ngIf="offer.Candidatures.length>0">
+                    <form class="row" >
+                      <div class="col-12" *ngFor="let c of offer.Candidatures">
+                        <div class="job-list" *ngIf="c.status == 'Accepted'">
+                          <div class="job-list-logo">
+                            <img class="img-fluid" src="http://localhost:8080/users/files/{{c.candidat.image}}" alt="">
+                          </div>
+                          <div class="job-list-details">
+                            <div class="job-list-info">
+                              <div class="job-list-title">
+                                <h5 class="mb-0"><a>{{c.candidat.firstName}} {{c.candidat.lastName}}</a></h5>
+                              </div>
+                              <div class="job-list-option">
+                                <ul class="list-unstyled">
+                                  <li> <span>via</span> <a href="employer-detail.html"> {{offer.titleoffer}}</a> </li>
+                                  <li><i class="fas fa-map-marker-alt pe-1"></i> {{offer.city.city}}, {{offer.city.country}} </li>
+                                  <li><i class="fas fa-filter pe-1"></i>{{offer.categorie.titlecategorie}}</li>
+                                  <li><a class="{{offer.contract_type}}" href="#"><i
+                                        class="fas fa-suitcase pe-1"></i>{{offer.contract_type}}</a></li>
+                                </ul>
+                              </div>
+                            </div>
+          
+                          </div>
+                          <div >
+                          <div class="col-12" >
+                            <!-- <button (click)="acceptCandidature(c,c.id)"  class="btn btn-success btn-xs" >Accept</button>
+                            <button (click)="refuseCandidature(c,c.id)"  class="btn btn-danger btn-xs">Reject</button> -->
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>   
+        <div class="row">
+          <div class="col-12 text-center mt-3 mb-4 mt-sm-3">
+            <ul class="pagination justify-content-center mb-0">
+              <li class="page-item disabled"> <span class="page-link b-radius-none">Prev</span> </li>
+              <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">...</a></li>
+              <li class="page-item"><a class="page-link" href="#">25</a></li>
+              <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Manage Candidates -->

@@ -1,0 +1,321 @@
+
+<!--=================================
+banner -->
+<div class="candidate-banner bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="candidate-list bg-light">
+          <div class="candidate-list-image">
+            <img class="img-fluid" src="http://localhost:8080/users/files/{{candidat.image}}" alt="" >
+          </div>
+          <div class="candidate-list-details">
+            <div class="candidate-list-info">
+              <div class="candidate-list-title">
+                <h5 class="mb-0">{{candidat.firstName}} {{candidat.lastName}}</h5>
+              </div>
+              <div class="candidate-list-option">
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-filter pe-1"></i>Construction </li>
+                  <li><i class="fas fa-map-marker-alt pe-1"></i>{{candidat.Address}}{{candidat.city.city}},{{candidat.city.admin_name}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--=================================
+banner -->
+
+<section class="space-pb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sticky-top secondary-menu-sticky-top">
+          <div class="secondary-menu">
+            <ul>
+              <li><a href="#about"> About </a></li>
+              <li><a href="#education"> Education </a></li>
+              <li><a href="#experience"> Work Experience </a></li>
+              <li><a href="#skill"> professional Skill </a></li>
+              <li><a href="#language"> language </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 mb-4 mb-lg-0">
+        <div class="jobber-candidate-detail">
+          <div id="about">
+            <h5 class="mb-3">About Me</h5>
+            <div class="border p-3">
+              <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <div class="d-flex">
+                    <i class="font-xll text-primary align-self-center flaticon-account"></i>
+                    <div class="feature-info-content ps-3">
+                      <label class="mb-0">Name:</label>
+                      <span class="d-block fw-bold text-dark">{{candidat.firstName}} {{candidat.lastName}}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <div class="d-flex">
+                    <i class="font-xll text-primary align-self-center flaticon-contact"></i>
+                    <div class="feature-info-content ps-3">
+                      <label class="mb-0">Phone :</label>
+                      <span class="d-block fw-bold text-dark">{{candidat.phone}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <div class="d-flex">
+                    <i class="font-xll text-primary align-self-center flaticon-appointment"></i>
+                    <div class="feature-info-content ps-3">
+                      <label class="mb-0">Date Of Birth :</label>
+                      <span class="d-block fw-bold text-dark">{{candidat.date_naissance}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <div class="d-flex">
+                    <i class="font-xll text-primary align-self-center flaticon-map"></i>
+                    <div class="feature-info-content ps-3">
+                      <label class="mb-0">Address :</label>
+                      <span class="d-block fw-bold text-dark">{{candidat.adresse}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <div class="d-flex">
+                    <i class="font-xll text-primary align-self-center flaticon-man"></i>
+                    <div class="feature-info-content ps-3">
+                      <label class="mb-0">Sex :</label>
+                      <span class="d-block fw-bold text-dark">{{candidat.gender}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <div class="d-flex">
+                    <i class="flaticon-loupe fa-2x fa-fw text-primary"></i>
+                    <div class="feature-info-content ps-3">
+                      <label class="mb-0">linkedin :</label>
+                      <span class="d-block fw-bold text-dark">{{candidat.linkedin}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="d-flex">
+                    <i class="font-xll text-primary align-self-center flaticon-approval"></i>
+                    <div class="feature-info-content ps-3">
+                      <label class="mb-0">Email:</label>
+                      <span class="d-block fw-bold text-dark">{{candidat.mailuser}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 mt-sm-5">
+              <p>{{candidat.description}}</p>
+              <p class="mb-0">Creative Solution Provider as a Freelance Graphic Artist and a Dedicated, Team worker to Induce the Creative Juice among the colleagues with a View to deliver the Best and New in the business.</p>
+            </div>
+          </div>
+          <hr class="my-4 my-md-5">
+
+          <div id="education">
+           
+            <h5 class="mb-3">Education</h5>
+            <div class="jobber-candidate-timeline">
+
+              <div class="jobber-timeline-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <form *ngFor="let e of education">
+              <div class="jobber-timeline-item">
+                <div class="jobber-timeline-cricle">
+                  <i class="far fa-circle"></i>
+                </div>
+                <div class="jobber-timeline-info">
+                  <span class="jobber-timeline-time">{{e.datedebut}} <b> to </b> {{e.datefinale}}</span>
+                  <h6 class="mb-2">{{e.certificat}}</h6>
+                  <span>-University</span>
+                  <p class="mt-2">{{e.faculte}}</p>
+                </div>
+              </div>
+              </form>
+            </div>
+          
+          </div>
+
+
+
+          <hr class="my-4 my-md-5">
+          <div id="experience">
+            <h5 class="mb-3">Work & Experience</h5>
+            <div class="jobber-candidate-timeline">
+              <div class="jobber-timeline-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <form *ngFor="let ex of experience">
+              <div class="jobber-timeline-item">
+                <div class="jobber-timeline-cricle">
+                  <i class="far fa-circle"></i>
+                </div>
+                <div class="jobber-timeline-info">
+                  <span class="jobber-timeline-time">{{ex.ddebut}} <b> to </b>{{ex.dfinal}}</span>
+                  <h6 class="mb-2">{{ex.poste}}</h6>
+                  <span>-{{ex.entreprise}}</span>
+                  <p class="mt-2">{{ex.description}}</p>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+
+          <hr class="my-4 my-md-5">
+          <div id="skill">
+            <h5 class="mb-3">Professional Skill</h5>
+            <div class="">
+            <blockquote class="blockquote"> So how do we get clarity? Simply by asking ourselves lots of questions: What do I really want? What does success look like to me? How will this achievement change my life? How can I use this success to make a difference for others?</blockquote>
+          </div>
+          <div class="row">
+            <div class="col-md-6"  *ngFor="let c of competence">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  [ngStyle]="{'width.%':c.niveau}" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar-title">{{c.title}}</div>
+                  <span class="progress-bar-number">{{c.niveau}}%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4 my-md-5">
+        <div id="skill">
+          <h5 class="mb-3">language</h5>
+          <div class="">
+          <blockquote class="blockquote"> </blockquote>
+        </div>
+        <div class="row">
+          <div class="col-md-6"  *ngFor="let l of lang">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar"  [ngStyle]="{'width.%':l.niveau}" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar-title">{{l.title}}</div>
+                <span class="progress-bar-number">{{l.niveau}}%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!--=================================
+    sidebar -->
+    <div class="col-lg-4">
+      <div class="sidebar mb-0">
+        <div class="widget pb-3">
+          <a href="#">
+            <div class="docs-content">
+              <div class="docs-text">
+                Cover letter
+                <span class="d-block text-danger">PDF</span>
+              </div>
+              <div class="docs-icon">
+                <i class="font-xlll text-danger flaticon-pdf"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="widget">
+          <a href="#">
+            <div class="docs-content">
+              <div class="docs-text">
+                Contract
+                <span class="d-block text-success">DOCS</span>
+              </div>
+              <div class="docs-icon">
+                <i class="font-xlll text-success flaticon-doc"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="widget">
+          <div class="widget-title">
+            <h5>Contact Melissa Doe</h5>
+          </div>
+          <div class="company-contact-inner widget-box">
+            <form>
+              <div class="form-group mb-3">
+                <label class="form-label">Full name</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" placeholder="">
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" rows="3" placeholder=""></textarea>
+              </div>
+              <a class="btn btn-primary btn-outline-primary d-grid" href="#">Send Email</a>
+            </form>
+          </div>
+        </div>
+        <div class="widget">
+          <div class="widget-add">
+          <img class="img-fluid" src="images/add-banner.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+    <!--=================================
+    sidebar -->
+
+  </div>
+</div>
+</section>
+
+<!--=================================
+feature -->
+<section class="feature-info-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-lg-0 mb-4">
+        <div class="feature-info feature-info-02 p-4 p-lg-5 bg-primary">
+          <div class="feature-info-icon mb-3 mb-sm-0 text-dark">
+            <i class="flaticon-team"></i>
+          </div>
+          <div class="feature-info-content text-white ps-sm-4 ps-0">
+            <p>Jobseeker</p>
+            <h5 class="text-white">Looking For Job?</h5>
+          </div>
+          <a class="ms-auto align-self-center" href="#">Apply now<i class="fas fa-long-arrow-alt-right"></i> </a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="feature-info feature-info-02 p-4 p-lg-5 bg-dark">
+          <div class="feature-info-icon mb-3 mb-sm-0 text-primary">
+            <i class="flaticon-job-3"></i>
+          </div>
+          <div class="feature-info-content text-white ps-sm-4 ps-0">
+            <p>Recruiter</p>
+            <h5 class="text-white">Are You Recruiting?</h5>
+          </div>
+          <a class="ms-auto align-self-center" href="#">Post a job<i class="fas fa-long-arrow-alt-right"></i> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+feature -->
+

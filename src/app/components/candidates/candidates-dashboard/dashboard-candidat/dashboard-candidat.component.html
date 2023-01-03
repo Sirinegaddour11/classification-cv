@@ -1,0 +1,123 @@
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row mb-3 mb-lg-5 mt-3 mt-lg-0">
+              <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="candidates-feature-info bg-dark">
+                  <div class="candidates-info-icon text-white">
+                    <i class="fas fa-globe-asia"></i>
+                  </div>
+                  <div class="candidates-info-content">
+                   <h6 class="candidates-info-title text-white">Total Applications</h6>
+                  </div>
+                  <div class="candidates-info-count">
+                    <h3 *ngIf="totalCandidatures()<10" class="mb-0 text-white">0{{totalCandidatures()}}</h3>
+                    <h3 *ngIf="totalCandidatures()>=10" class="mb-0 text-white">{{totalCandidatures()}}</h3>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="candidates-feature-info bg-success">
+                  <div class="candidates-info-icon text-white">
+                    <i class="fas fa-thumbs-up"></i>
+                  </div>
+                  <div class="candidates-info-content">
+                   <h6 class="candidates-info-title text-white">Shortlisted Applications</h6>
+                  </div>
+                  <div class="candidates-info-count">
+                    <h3 class="mb-0 text-white">00</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="candidates-feature-info bg-danger">
+                  <div class="candidates-info-icon text-white">
+                    <i class="fas fa-thumbs-down"></i>
+                  </div>
+                  <div class="candidates-info-content">
+                   <h6 class="candidates-info-title text-white">Rejected Applications</h6>
+                  </div>
+                  <div class="candidates-info-count">
+                    <h3 class="mb-0 text-white">00</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- <div class="user-dashboard-info-box">
+            <div id="chart">
+               
+                <div class="col-lg-8">
+                  <div class="section-title-02">
+                    <h2>NOTIFICATIONS</h2>
+                  </div>
+                  <div class="accordion accordion-style" id="accordion-Two" *ngFor="let notif of notifs ;let i =index"l>
+                    <div class="accordion-item" >
+                      <h2 class="accordion-header" id="headingOne">
+                        <a class="accordion-button" type="button" role="button" data-bs-toggle="collapse" href="#collapseOne-0{{i+2}}"
+                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                         {{notif.type}} <i class="fas fa-chevron-down fa-xs"></i></a>
+                      </h2>
+                      <div id="collapseOne-0{{i+2}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-Two">
+                        <div class="accordion-body">
+                          <p>{{notif.contenu}} </p>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+         
+            </div>
+          </div> -->
+          <div>
+
+          </div>
+          <div class="user-dashboard-info-box mb-0 pb-4">
+            <div class="section-title">
+              <h4>Recent Applied Jobs</h4>
+            </div>
+            <div class="row">
+              <div class="col-12"  *ngFor="let c of candidatures">
+                <div class="job-list">
+                  <div class="job-list-logo">
+                  <img class="img-fluid" src="http://localhost:8080/users/files/{{c.offre.logo}}" alt="">
+                  </div>
+                  <div class="job-list-details">
+                    <div class="job-list-info">
+                      <div class="job-list-title">
+                        <h5 class="mb-0"><a routerLink="/job-detail/{{c.offre.idoffre}}">{{c.offre.titleoffer}}</a></h5>
+                      </div>
+                      <div class="job-list-option">
+                        <ul class="list-unstyled">
+                          <li> <span>via</span> <a href="employer-detail.html">{{c.offre.societe.companyname}}</a> </li>
+                          <li><i class="fas fa-map-marker-alt pe-1"></i>{{c.offre.city.city}},{{c.offre.city.admin_name}}</li>
+                          <li><i class="fas fa-filter pe-1"></i> {{c.offre.profil}}</li>
+                          <li><a class="{{c.offre.contract_type}}" href="#"><i class="fas fa-suitcase pe-1"></i>{{c.offre.contract_type}}</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list-favourite-time"> <a class="mb-3 d-block order-2" routerLink="/job-detail/{{c.offre.idoffre}}"><i class="far fa-edit"></i></a> <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>1M ago</span> </div>
+                </div>
+              </div>
+        
+            </div>
+            <div class="row">
+              <div class="col-12 text-center mt-4 mt-md-5">
+                <ul class="pagination justify-content-center mb-md-4 mb-0">
+                  <li class="page-item disabled"> <span class="page-link b-radius-none">Prev</span> </li>
+                  <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">...</a></li>
+                  <li class="page-item"><a class="page-link" href="#">25</a></li>
+                  <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
