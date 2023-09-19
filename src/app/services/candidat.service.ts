@@ -38,7 +38,7 @@ export class CandidatService {
 
 
   getAllCity() {
-    return this.http.get(`${environment.BackUrl}/users/city/get`)
+    return this.http.get(`${environment.BackUrl}/users/city/all`)
   }
 
   getAllCountry() {
@@ -83,7 +83,7 @@ export class CandidatService {
   }
   //com
   getAllCompetence() {
-    return this.http.get(`${environment.BackUrl}/users/competence/get`)
+    return this.http.get(`${environment.BackUrl}/users/competence/all`)
   }
   getOnCompetence(id: any) {
     return this.http.get(`${environment.BackUrl}/users/competence/getone/${id}`)

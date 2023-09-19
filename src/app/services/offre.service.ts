@@ -13,21 +13,21 @@ export class OffreService {
   }
   
   getAllCity() {
-    return this.http.get(`${environment.BackUrl}/users/city/get`)
+    return this.http.get(`${environment.BackUrl}/users/city/all`)
   }
 
   getAllCountry() {
-    return this.http.get(`${environment.BackUrl}/users/country/get`)
+    return this.http.get(`${environment.BackUrl}/users/country/all`)
   }
 
   getAllState() {
-    return this.http.get(`${environment.BackUrl}/users/state/get`)
+    return this.http.get(`${environment.BackUrl}/users/state/all`)
   }
   getCity(idcity : any) {
     return this.http.get(`${environment.BackUrl}/users/city/getone/${idcity}`)
   }
   getAllCategorie() {
-    return this.http.get(`${environment.BackUrl}/users/categorie/get`)
+    return this.http.get(`${environment.BackUrl}/users/category/all`)
   }
   saveOffer(offre: any) {
     return this.http.post(`${environment.BackUrl}/users/offre/save`, offre)

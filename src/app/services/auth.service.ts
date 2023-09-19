@@ -16,7 +16,7 @@ export class AuthService {
     return this.http.post(`${environment.BackUrl}/users/candidat/register`, registerRequest)
   }
   Register_societe( id_category: any, id_city: any, registerRequest: any) {
-    return this.http.post(`${environment.BackUrl}/users/Societe/register/${id_category}/${id_city}`, registerRequest)
+    return this.http.post(`${environment.BackUrl}/users/societe/register/${id_category}/${id_city}`, registerRequest)
   
   }
 

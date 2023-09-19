@@ -42,13 +42,13 @@ export class PostAJobComponent implements OnInit {
         id_category: ['', Validators.required],
       })}
 
-  addOffer() {
-    this.offreService.saveOffer(this.formOffer.value).subscribe(
-      (res: any) => {
-        console.log(res)
-        this.formOffer.reset()
-        Swal.fire('aadded', 'succes')
-      })}
+  // addOffer() {
+  //   this.offreService.saveOffer(this.formOffer.value).subscribe(
+  //     (res: any) => {
+  //       console.log(res)
+  //       this.formOffer.reset()
+  //       Swal.fire('aadded', 'succes')
+  //     })}
 
   addOffer2() {
     this.offreService.addOffer(this.formOffer.value, this.formOffer.value.id_category,this.formOffer.value.id_city, this.formOffer.value.id_societe).subscribe(
@@ -65,7 +65,7 @@ export class PostAJobComponent implements OnInit {
   addOffer3() {
     let formData = new FormData();
     formData.append("titleoffer", this.formOffer.value.titleoffer);
-    formData.append("descriptionoffer", this.formOffer.value.descriptionoffer);
+    formData.append("description", this.formOffer.value.description);
     formData.append("salary", this.formOffer.value.salary);
     formData.append("datelimite", this.formOffer.value.datelimite);
     formData.append("profil", this.formOffer.value.profil);
