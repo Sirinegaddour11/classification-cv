@@ -1,7 +1,7 @@
 
 
 export const environment = {
-  // production: false,
+  production: false,
   BackUrl:"http://localhost:8080"
 };
 
