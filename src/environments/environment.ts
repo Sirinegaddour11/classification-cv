@@ -2,6 +2,6 @@
 
 export const environment = {
   production: false,
-  BackUrl:"http://localhost:8080"
+  BackUrl:"http://localhost:8080",
 };
 
